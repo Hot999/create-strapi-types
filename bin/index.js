@@ -1,7 +1,6 @@
 #! /usr/bin/env node 
 
-const { crateTypes } = require("..")
+const { create } = require("create-strapi-types");
 
-console.log("Hellow from my NPM Package")
 
-crateTypes()
+create()
