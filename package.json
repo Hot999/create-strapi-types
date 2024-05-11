@@ -6,6 +6,9 @@
   "scripts": {
     "create-types": "node index.js"
   },
+  "bin": {
+    "create-strapi-types": "bin/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Hot999/create-strapi-types.git"
@@ -15,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/Hot999/create-strapi-types/issues"
   },
-  "homepage": "https://github.com/Hot999/create-strapi-types#readme"
+  "homepage": "https://github.com/Hot999/create-strapi-types#readme",
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
 }

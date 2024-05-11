@@ -242,6 +242,14 @@ const createComponentsTypes = () => {
   fileContent += strTypes;
 };
 
-createMainTypes();
-createComponentsTypes();
-createFile((fileContent += typeMedia));
+// createMainTypes();
+// createComponentsTypes();
+// createFile((fileContent += typeMedia));
+
+module.exports = {
+  crateTypes: () => {
+    createMainTypes();
+    createComponentsTypes();
+    createFile((fileContent += typeMedia));
+  },
+};
