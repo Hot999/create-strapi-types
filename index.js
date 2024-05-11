@@ -86,14 +86,17 @@ const createComponentsTypes = (items) => {
   return strTypes;
 };
 
-const create = () => {
+const create = (hasFrontend) => {
   const items = [];
   const fileMainContent = createMainTypes(items);
   const fileComponentsContent = createComponentsTypes(items);
   const fileContent = fileMainContent + fileComponentsContent + defaultTypes;
 
   createFile(pathBackendTypes, "types.ts", fileContent, "backend");
-  createFile(pathFrontendTypes, "types.ts", fileContent, "frontend");
+
+  if (hasFrontend) {
+    createFile(pathFrontendTypes, "types.ts", fileContent, "frontend");
+  }
 };
 
 module.exports = {

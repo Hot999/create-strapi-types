@@ -11,3 +11,11 @@ npm i create-strapi-types
 ```
 npx create-strapi-types
 ```
+
+Параметры
+
+```
+npx create-strapi-types frontend
+```
+
+Создает файл в /frontend/src/types/types.ts
