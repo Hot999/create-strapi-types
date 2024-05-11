@@ -10,6 +10,13 @@ const getPathToSrc = () => {
   }
   return __dirname;
 };
+
+const getPathToBackend = () => {
+  if (matchBackend) {
+    return `${__dirname.slice(0, matchBackend.index)}/backend/types`;
+  }
+  return __dirname;
+};
 const getPathToFrontend = () => {
   if (matchBackend) {
     return `${__dirname.slice(0, matchBackend.index)}/frontend/src/types`;
@@ -18,6 +25,7 @@ const getPathToFrontend = () => {
 };
 
 const pathToSrc = getPathToSrc();
+const pathToBackend = getPathToBackend();
 const pathToFrontend = getPathToFrontend();
 const apiFolder = path.join(pathToSrc, "/api");
 const componentsFolder = path.join(pathToSrc, "/components");
@@ -63,7 +71,12 @@ const createFile = async (fileContent) => {
     semi: false,
     parser: "babel",
   });
-  fs.writeFile(path.join(__dirname, "types.ts"), str, (err) => {
+
+  if (!fs.existsSync(pathToBackend)) {
+    fs.mkdirSync(pathToBackend);
+  }
+
+  fs.writeFile(path.join(pathToBackend, "/types.ts"), str, (err) => {
     if (err) {
       console.error(err);
     } else {
